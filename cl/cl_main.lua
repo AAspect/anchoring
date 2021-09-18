@@ -9,7 +9,7 @@ RegisterCommand('anchor', function()
     end
 end)
 
-RegisterNetEvent('client:toggleAnchor', function(state, ent,source)
+RegisterNetEvent('client:toggleAnchor', function(state, ent)
     local ped = PlayerPedId();
     local veh = NetToVeh(ent)
     -- print(NetToVeh(ent))
