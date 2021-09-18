@@ -13,14 +13,23 @@ RegisterNetEvent('client:toggleAnchor', function(state, ent)
     local ped = PlayerPedId();
     local veh = GetVehiclePedIsIn(ped, true)
     local vehposition = GetEntityCoords(veh)
-    if state == 'anchor' then 
+    -- ClearPedTasks(ped)
+    if state == 'anchor' then    
         SetBoatAnchor(veh, true)
         SetBoatFrozenWhenAnchored(veh, true)
+        TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_BUM_BIN", 0, true)  
+        Wait(1000)
+        ClearPedTasks(ped)
         print("Successfully Anchored the Boat")
     elseif state == 'unanchor' then
         SetBoatFrozenWhenAnchored(veh, false)
         SetBoatAnchor(veh, false)
         print("Unanchoring")
+        TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_BUM_BIN", 0, true)  
+        Wait(1000)
+        ClearPedTasks(ped)
     end
 
 end)
+
+
