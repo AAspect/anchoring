@@ -12,17 +12,14 @@ end)
 RegisterNetEvent('client:toggleAnchor', function(state, ent)
     local ped = PlayerPedId();
     local veh = NetToVeh(ent)
-    -- print(NetToVeh(ent))
     if state == 'anchor' then
         SetBoatAnchor(veh, true)
         SetBoatFrozenWhenAnchored(veh, true)
-        print("Successfully Anchored the Boat")
+        print("Successfully Anchored the Boat: " .. veh)
     elseif state == 'unanchor' then
         SetBoatFrozenWhenAnchored(veh, false)
         SetBoatAnchor(veh, false)
-        print("Unanchoring")
+        print("Unanchoring: " .. veh)
     end
 
 end)
-
-
